@@ -70,7 +70,8 @@ body
     background:#cfb;
 }
 
-/* .snote ul li:nth-child(3n) a{
+/* .snote ul li:nth-child(3n) a
+{
   -o-transform:rotate(-3deg);
   -webkit-transform:rotate(-3deg);
   -moz-transform:rotate(-3deg);
@@ -79,7 +80,8 @@ body
   background:#ccf;
 }
 
-.snote ul li:nth-child(5n) a{
+.snote ul li:nth-child(5n) a
+{
   -o-transform:rotate(5deg);
   -webkit-transform:rotate(5deg);
   -moz-transform:rotate(5deg);
@@ -88,7 +90,8 @@ body
   background:#fcf;
 }
 
-.snote ul li a:hover,ul li a:focus{
+.snote ul li a:hover,ul li a:focus
+{
   -moz-box-shadow:10px 10px 7px rgba(0,0,0,.7);
   -webkit-box-shadow: 10px 10px 7px rgba(0,0,0,.7);
   box-shadow:10px 10px 7px rgba(0,0,0,.7);
@@ -120,11 +123,28 @@ body
     font-family:'Shadows Into Light Two',arial,sans-serif;
     font-size:140%;
     color:#000;
-} */
+}
 
 .buttonColor
 {
     color:black;
+}
+.intro
+{
+    border-radius: 10px;
+    box-shadow: 0 0 0 1px #000;
+    border: 5px solid transparent;
+}
+
+#footer
+{
+    background-color:#666;
+    position:fixed;
+    bottom:0px;
+    left:0px;
+    right:0px;
+    height:30px;
+    margin-bottom:0px;
 }
 
 </style>
@@ -133,22 +153,20 @@ body
 
 <div class="container-fluid">
     <div class="row">
-        <div class="col-sm-6">
 
+        <div class="col-sm-6">
             <font size="35"  color="red" style="font-family:Georgia, 'Times New Roman', Times, serif;">IdeaBoards</font>
-            <font size="4" color="black" style="font-family:Courier New, Courier, monospace">brainstrom,collaborate</font>
+            <font size="4" color="black" style="font-family:Courier New, Courier, monospace">Brainstrom,Collaborate</font>
         </div>
 
         <b class="col-sm-3 col-sm-offset-3"><font size="4" style="font-family:Georgia, 'Times New Roman', Times, serif;">Welcome ${session.user}</font></b>
+
         <div class="col-sm-1 col-sm-offset-5">
-
-            <a href="index.gsp" onclick="signOut();" >
-
-                <font size="6"  color="black" style="font-family:Georgia, 'Times New Roman', Times, serif;" >Logout</font></a>
-            %{--<button class="loginBtn loginBtn--google g-signin2" data-onsuccess="onSignIn">--}%
-                %{--Login with Google--}%
-            %{--</button>--}%
+            <a href="index.gsp" onclick="signOut();">
+                <font size="6"  color="black" style="font-family:Georgia, 'Times New Roman', Times, serif;" >Logout</font>
+            </a>
         </div>
+
     </div>
 </div>
 
@@ -158,54 +176,61 @@ body
         <cite class="author">-Albert Einstein</cite>
     </blockquote>
 </div>
+
 <div class="snote">
     <ul>
         <li>
             <h2>How?</h2><hr/>
-            <a href="#" data-toggle="modal" data-target="#myModal"><p><b><font color="black">Create</font></b></a> my Own Board</p>
-            <div class="modal fade" id="myModal" role="dialog">
-                <div class="modal-dialog">
+                <a href="#" data-toggle="modal" data-target="#myModal"><p><b><font color="black">Create</font></b></a> my Own Board</p>
+                    <div class="modal fade" id="myModal" role="dialog">
 
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <button type="button" class="close" data-dismiss="modal">&times;</button>
-                            <h4 class="modal-title">Create Board</h4>
-                        </div>
-                    <g:form controller="dashboard" action="save">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                    <h4 class="modal-title">Create Board</h4>
+                                </div>
 
-                        <div class="modal-body">
-                            <input type="text" class="form-control" id="usr" name="titlename" placeholder="Please Enter Name" required/>
-                        </div>
+                                <g:form controller="dashboard" action="save" >
 
-                        <div class="modal-body">
-                            <select class="form-control" id="select" name="swimlanename" >
-                                <option value="0" >-- Select --</option>
-                                <option value="1" name="swimlanename1" > 1 Section</option>
-                                <option value="2" name="swimlanename2" > 2 Sections</option>
-                                <option value="3" name="swimlanename3" > 3 Sections</option>
-                                <option value="4" name="swimlanename4" > 4 Sections</option>
-                                <option value="5" name="swimlanename5" > 5 Sections</option>
-                            </select>
-                        %{--    <input type="text" class="form-control" id="usr1" name="swimlanename1"/>--}%
-                            <div id="texts" name="swimlanename1">
+                                    <div class="modal-body">
+                                        <input type="text" class="form-control" id="usr" name="titlename" placeholder="Please Enter Name" required/>
+                                    </div>
+
+                                    <div class="modal-body">
+                                        <select class="form-control" id="select" name="swimlanename" >
+                                            <option value="0" >-- Select --</option>
+                                            <option value="1" name="swimlanename1" > 1 Section</option>
+                                            <option value="2" name="swimlanename2" > 2 Sections</option>
+                                            <option value="3" name="swimlanename3" > 3 Sections</option>
+                                            <option value="4" name="swimlanename4" > 4 Sections</option>
+                                            <option value="5" name="swimlanename5" > 5 Sections</option>
+                                        </select>
+
+                                        <div id="texts" name="swimlanename1"></div>
+                                    </div>
+
+                                    <div class="selector">
+                                        <g:hiddenField name="optionValue" value="${session.optionValue}"></g:hiddenField>
+                                    </div>
+
+                                    <div class="modal-footer">
+                                        <button type="submit" class="intro" name="save" value="Save">Save</button>
+                                        %{--<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>--}%
+                                    </div>
+
+                                </g:form>
                             </div>
                         </div>
-
-                        <div class="modal-footer">
-                            <button type="submit" class="btn btn-default" name="save" value="Save"  >Save</button>
-                            %{--<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>--}%
-                        </div>
-                    </g:form>
                     </div>
-                </div>
-            </div>
         </li>
 
         <li>
-            <h2>Why?</h2><hr />
+            <h2>Why?</h2><hr/>
             <p><b>Add Ideas at Anytime</b></p>
             <p><b>Brainstorm across Oceans</b></p>
         </li>
+
         <!-- <li>
     <a href="#LINK 3">
       <h2>Note  #3</h2><hr />
@@ -227,6 +252,10 @@ body
     </ul>
 </div>
 
+<div id="footer">
+    <font size="4" color="white"style="font-family:Georgia, 'Times New Roman', Times, sans-serif; margin-left: 450px">@ Systems Plus Transformations LLP 2017. All Rights Reserved </font>
+</div>
+
 <script src="https://apis.google.com/js/platform.js" async defer></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
@@ -240,6 +269,14 @@ body
         select.onchange = function()
         {
             var val = select.options[select.selectedIndex].value;
+
+            $.ajax({
+                type: 'POST',
+                url: '/IdeaBoardsProject/dashboard/example',
+                data: {selectionValue: val }
+
+            });
+
             texts.innerHTML = "";
             for(i=0; i < val; i++)
             {
@@ -251,7 +288,8 @@ body
 </script>
 
 <script>
-    function signOut() {
+    function signOut()
+    {
         var auth2 = gapi.auth2.getAuthInstance();
         auth2.signOut().then(function () {
             console.log('User signed out.');

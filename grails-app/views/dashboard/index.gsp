@@ -23,7 +23,7 @@
 <style>
     body
     {
-        background-color: #cc9;
+        background-color: #b3cccb;
     }
 </style>
 
@@ -31,7 +31,7 @@
 <link href='http://fonts.googleapis.com/css?family=Shadows+Into+Light+Two' rel='stylesheet' type='text/css'>
 
 <body>
-<br><br><br><br><br><br><br><br><br>
+<br><br><br><br><br><br><br><br><br><br><br><br><br>
 
 <div class="container-fluid">
     <div class="row">
@@ -61,7 +61,7 @@
             type: 'post',
             data: {fullName: profile.getName()},
             success: function (data) {
-                 alert("success");
+                // alert("Success");
                 window.location="dashboard.gsp"
             },
             error: function () {
